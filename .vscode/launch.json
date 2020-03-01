@@ -17,7 +17,9 @@
             //     "RUBY_VERSION": "YOUR_RUBY_VERSION_HERE"
             // },
             "args": [
-                "server"
+                "server",
+                "-e",
+                "development"
             ]
         }
         
