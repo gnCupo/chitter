@@ -1,0 +1,27 @@
+<h1><%= @channel.name %></h1>
+
+<div class="channels">
+<%= render partial: 'channels'%>
+</div>
+
+<div class="chitchat">
+  <div class="chat">
+    <% @messages.each do |message| %>
+      <%= message.user %>:
+      <%= message.body %>
+    <% end %>
+  </div>
+  <div class="chit">
+    <%= simple_form_for @message, remote: true do |form| %>
+      <%= form.input :user, as: :string %>
+      <%= form.input :body, as: :string,
+                            wrapper: false,
+                            label: false,
+                            input_html: {
+                              class: 'chit-input'
+                            } %>
+      <%= form.submit "BIEM", class: "btn btn-biem" %>
+      <%= form.input :channel_id, as: :hidden %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+  <%= link_to new_channel_path do %>
+    Nieuw kanaal
+  <% end %>
+
+<% if @channels.present? %>
+  <nav>
+    <% @channels.each do |channel| %>
+      <%= link_to channel.name, channel_path(channel) %>
+    <% end %>
+  </nav>
+<% else %>
+  <em>Geen kanalen gevonden</em>
+<% end %>

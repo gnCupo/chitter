@@ -1,0 +1,17 @@
+// Place all the styles related to the Channels controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+$primary: #000;
+$secondary: #555;
+.chat {
+    border: 1px solid lighten($secondary, 40%);
+    background: lighten($secondary, 50%);
+    height: 50vh;
+    border-radius: 5px 5px 0 0;
+    overflow-y: auto;
+}
+
+.btn-biem {
+    border-top: 0 none;
+    border-radius: 0 0 5px 5px;
+}
