@@ -1,33 +1,29 @@
 <h1><%= @channel.name %></h1>
-
 <div class="channels">
-<%= render partial: 'channels' %>
+  <%= render partial: 'channels' %>
 </div>
-
 <div class="chitchat">
   <div class="chat" data-channel-subscribe="channel" data-channel-id="<%= @channel.id %>">
     <% @messages.each do |message| %>
-              <div class="chat-message-container">
-          <div class="row no-gutters">
-            <div class="col-auto text-center">
-              <%= message.user %>
-            </div>
-
-            <div class="col">
-              <div class="message-content">
-                <p class="mb-1">
-                  <%= message.body %>
-                </p>
-
-                <div class="text-right">
-                  <small>
-                    <%= message.created_at %>
-                  </small>
-                </div>
+      <div class="chat-message-container">
+        <div class="row no-gutters">
+          <div class="col-auto text-center">
+            <%= message.user %>
+          </div>
+          <div class="col">
+            <div class="message-content">
+              <p class="mb-1">
+                <%= message.body %>
+              </p>
+              <div class="text-right">
+                <small>
+                  <%= message.created_at %>
+                </small>
               </div>
             </div>
           </div>
         </div>
+      </div>
     <% end %>
   </div>
   <div class="chit">
@@ -38,8 +34,8 @@
                             label: false,
                             input_html: {
                               class: 'chit-input'
-                            } %>
-      <%= form.submit "BIEM", class: "btn btn-biem" %>
+                            }%>
+      <%= form.submit "biem", class: "btn btn-biem" %>
       <%= form.input :channel_id, as: :hidden %>
     <% end %>
   </div>

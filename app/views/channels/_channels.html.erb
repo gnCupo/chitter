@@ -1,7 +1,6 @@
-  <%= link_to new_channel_path do %>
-    Nieuw kanaal
-  <% end %>
-
+<%= link_to new_channel_path do %>
+  Nieuw kanaal
+<% end %>
 <% if @channels.present? %>
   <nav>
     <% @channels.each do |channel| %>
