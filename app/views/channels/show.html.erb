@@ -5,23 +5,15 @@
 <div class="chitchat">
   <div class="chat" data-channel-subscribe="channel" data-channel-id="<%= @channel.id %>">
     <% @messages.each do |message| %>
-      <div class="chat-message-container">
-        <div class="row no-gutters">
-          <div class="col-auto text-center">
-            <%= message.user %>
-          </div>
-          <div class="col">
-            <div class="message-content">
-              <p class="mb-1">
-                <%= message.body %>
-              </p>
-              <div class="text-right">
-                <small>
-                  <%= message.created_at %>
-                </small>
-              </div>
-            </div>
-          </div>
+      <div class="message">
+        <div class="username">
+          <%= message.user %>
+        </div>
+        <div class="body">
+          <small class="time">
+            <%= message.created_at.localtime.strftime("%H:%M:%S") %>
+          </small>
+          <p><%= message.body %></p>
         </div>
       </div>
     <% end %>
@@ -40,3 +32,20 @@
     <% end %>
   </div>
 </div>
+<script type="application/javascript">
+  // Get form element
+  const form = document.querySelector('.chit > form'),
+    // Get message-body input field
+    input = form && form.querySelector('input[name="message[body]"]');
+  
+  // Check if input field is found
+  if (!input) {
+    return;
+  }
+  
+  // Add success-handler for AJAX requests by form
+  // which clears the message-body input field
+  form.addEventListener('ajax:success', function () {
+    input.value = '';
+  })
+</script>
